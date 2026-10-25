@@ -1,0 +1,45 @@
+name: Build MindEcliptic Wheel Video (isolated draft)
+
+on:
+  push:
+    branches:
+      - video/wheel-of-the-year-edit
+    paths:
+      - "video/build.py"
+      - ".github/workflows/build-wheel-video-draft.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  render-wheel-video:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Checkout calendar website and video-edit script
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install video editing tools
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install numpy pillow opencv-python-headless playwright
+          python -m playwright install --with-deps chromium
+          ffmpeg -version | head -n 1
+
+      - name: Render actual HeyGen animated scenes and Expressive Evan narration
+        run: python video/build.py
+
+      - name: Publish private draft for review
+        if: success()
+        uses: actions/upload-artifact@v4
+        with:
+          name: MindEcliptic-Wheel-of-the-Year-DRAFT-104sec
+          path: video/output/MindEcliptic_Wheel_of_the_Year_DRAFT_104sec_720x1280.mp4
+          retention-days: 14
+          if-no-files-found: error
