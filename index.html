@@ -36,4 +36,29 @@
 </aside></main>
 
 <footer>MindEcliptic · Wheel of the Year · Northern Hemisphere · 2026–2100</footer>
-</div><script src="./app.js" defer></script></body></html>
+</div><script src="./app.js" defer></script><script>
+// Tell the embedding WordPress page the content's real height.
+(() => {
+  'use strict';
+  if (window.parent === window) return;
+  const content = document.querySelector('.container');
+  if (!content) return;
+  let frame = 0;
+  const report = () => {
+    frame = 0;
+    const height = Math.ceil(content.getBoundingClientRect().bottom + window.scrollY);
+    if (height > 0) {
+      window.parent.postMessage({ type: 'mindecliptic:wheel:resize', height }, '*');
+    }
+  };
+  const schedule = () => {
+    if (frame) cancelAnimationFrame(frame);
+    frame = requestAnimationFrame(report);
+  };
+  if ('ResizeObserver' in window) new ResizeObserver(schedule).observe(content);
+  window.addEventListener('load', schedule);
+  window.addEventListener('resize', schedule);
+  document.addEventListener('toggle', schedule, true);
+  schedule();
+})();
+</script></body></html>
