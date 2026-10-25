@@ -1,0 +1,46 @@
+{
+  "source": "Wheel_of_the_Year_VERIFIED.html",
+  "images": {
+    "beltane.webp": {
+      "bytes": 271188,
+      "sha256": "fdd552f9582111f4ec36293246d5abd209cf24c4a9eb59e69967e5d199c8531c"
+    },
+    "imbolc.webp": {
+      "bytes": 276556,
+      "sha256": "69e613b2ed72a821e23f39edd1236dbd11f1291122bc193b40f3cfa739906f53"
+    },
+    "lammas.webp": {
+      "bytes": 260126,
+      "sha256": "2de04028284d176f42a7d2760ba2bd7ca5c565b747f68ba0a1a222b1ab60b9c9"
+    },
+    "litha.webp": {
+      "bytes": 269236,
+      "sha256": "83e0b8a1af30a078ba46a7c2556667675b446f9fd6366619c7551dd752b035bb"
+    },
+    "mabon.webp": {
+      "bytes": 273522,
+      "sha256": "40627f4cb13cd1cf0c5a3d1056152f49b123d484b3af7178617fd8f9bab9cdec"
+    },
+    "ostara.webp": {
+      "bytes": 305952,
+      "sha256": "3d1750022b11addd89c862d4486589d0b7ca62fa4345fccd6a8c141032cd12f8"
+    },
+    "samhain.webp": {
+      "bytes": 204168,
+      "sha256": "e60052a68d8cba6deb5345ae2fd038191a729f48a43b0325e51c848c88ab52b8"
+    },
+    "wheel.webp": {
+      "bytes": 350548,
+      "sha256": "22f658820f26e79ff7b2d9c3508fd924afdc5858a2daefbf80a1793a9e5365b0"
+    },
+    "yule.webp": {
+      "bytes": 272162,
+      "sha256": "da60189b5afd9b8e28718e7cc915f0bc4e2c2df0ce68cbe9f25b58278b91f322"
+    }
+  },
+  "production_files": {
+    "index.html": 6456,
+    "styles.css": 9363,
+    "app.js": 40783
+  }
+}

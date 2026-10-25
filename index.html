@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#071522"><meta name="description" content="Explore eight seasonal sabbats with an interactive Wheel of the Year, dates from 2026 to 2100, original artwork, historical context, folklore and ways to celebrate."><title>Wheel of the Year — MindEcliptic</title><link rel="stylesheet" href="./styles.css"></head><body>
+<div class="container">
+<header class="mast"><div class="eyebrow">MindEcliptic · Interactive Seasonal Almanac</div><h1>The Wheel of the Year</h1><p>Eight sabbats · four seasons · one ever-turning cycle of nature. Select a painted sector to explore its story.</p></header>
+<div class="year-controls"><label for="year-picker">Select a year</label><button id="year-prev" type="button" aria-label="Previous year">‹</button><select id="year-picker" aria-label="Calendar year 2026 through 2100"></select><button id="year-next" type="button" aria-label="Next year">›</button></div>
+<p class="date-legend">The eightfold Wheel is a modern Pagan calendar inspired by older and newer seasonal traditions. Lesser Sabbats follow the solstices and equinoxes; Greater Sabbats use conventional festival dates. Astronomical dates reflect your device’s time zone.</p>
+<button type="button" class="next-sabbat" id="next-sabbat" aria-label="Open the next upcoming sabbat">
+  <span class="next-sabbat-icon" aria-hidden="true">✦</span>
+  <span class="next-sabbat-main"><span class="next-sabbat-eyebrow">Next Sabbat · Upcoming Festival</span><span class="next-sabbat-name" id="next-sabbat-name">Calculating…</span><span class="next-sabbat-date" id="next-sabbat-date"></span></span>
+  <span class="next-sabbat-countdown"><strong id="next-sabbat-count">—</strong><small id="next-sabbat-count-label">days to go</small></span>
+  <span class="next-sabbat-action" aria-hidden="true">Explore →</span>
+</button>
+<p class="next-sabbat-context">Based on today's date in your device's time zone, not the year selected above.</p>
+<main class="layout">
+<section class="wheel-col" aria-label="Interactive wheel with eight sabbats"><div class="artboard"><img decoding="async" fetchpriority="high" src="./assets/wheel.webp" alt="Ornate Wheel of the Year with eight painted seasonal sectors and central sun and moon" draggable="false"><svg class="slices" id="slice-map" viewBox="0 0 1000 1000" aria-label="Choose a sabbat"></svg><button class="rim-label" type="button" data-index="0" style="--x:50%;--y:9.3%" aria-label="Explore Yule"><span class="name">Yule</span><span class="date" data-wheel-date></span></button>
+<button class="rim-label" type="button" data-index="1" style="--x:77%;--y:15.5%" aria-label="Explore Imbolc"><span class="name">Imbolc</span><span class="date" data-wheel-date></span></button>
+<button class="rim-label" type="button" data-index="2" style="--x:89.1%;--y:50%" aria-label="Explore Ostara"><span class="name">Ostara</span><span class="date" data-wheel-date></span></button>
+<button class="rim-label" type="button" data-index="3" style="--x:77.7%;--y:84.3%" aria-label="Explore Beltane"><span class="name">Beltane</span><span class="date" data-wheel-date></span></button>
+<button class="rim-label" type="button" data-index="4" style="--x:50%;--y:90.7%" aria-label="Explore Litha"><span class="name">Litha</span><span class="date" data-wheel-date></span></button>
+<button class="rim-label" type="button" data-index="5" style="--x:22.2%;--y:84.3%" aria-label="Explore Lammas"><span class="name">Lammas</span><span class="date" data-wheel-date></span></button>
+<button class="rim-label" type="button" data-index="6" style="--x:10.9%;--y:50%" aria-label="Explore Mabon"><span class="name">Mabon</span><span class="date" data-wheel-date></span></button>
+<button class="rim-label" type="button" data-index="7" style="--x:22.3%;--y:15.5%" aria-label="Explore Samhain"><span class="name">Samhain</span><span class="date" data-wheel-date></span></button></div><p class="wheel-note">Click or tap any painted sector to open its full original illustration and details.</p></section>
+<aside class="panel" id="detail-panel" aria-label="Selected sabbat details">
+<img decoding="async" id="sabbat-image" class="panel-picture" src="./assets/yule.webp" alt="Yule: winter-solstice landscape with a lantern-bearing woman and deer">
+<div class="panel-top"><div class="panel-kicker" id="panel-kicker">Explore the eight sabbats</div><h2 id="sabbat-name">Yule</h2><div class="panel-subtitle" id="sabbat-category">Winter Solstice</div>
+<div class="panel-dates"><div class="date-box"><div class="micro" id="date-label">Date in selected year</div><div class="main" id="sabbat-date">December 21, 2026</div><div class="sub" id="sabbat-time"></div></div>
+<div class="date-box"><div class="micro">Festival type</div><div class="main" id="sabbat-type">Lesser Sabbat</div><div class="sub" id="sabbat-date-note">Astronomical date may change by year and location.</div></div></div></div>
+<div class="panel-content"><h3 id="sabbat-tagline" class="tagline">The return of the light</h3><p id="sabbat-description" class="description"></p><div class="facts"><span id="sabbat-season"></span><span id="sabbat-motifs"></span></div><details class="info-accordion"><summary>Origins & Cultural Context</summary><p data-info="origins"></p></details>
+<details class="info-accordion"><summary>Traditions & Customs</summary><p data-info="traditions"></p></details>
+<details class="info-accordion"><summary>Symbols & Associations</summary><p data-info="symbols"></p></details>
+<details class="info-accordion"><summary>Herbs, Plants & Colors</summary><p data-info="plants"></p></details>
+<details class="info-accordion"><summary>How to Celebrate Today</summary><p data-info="today"></p></details>
+<details class="info-accordion"><summary>Folklore & Beliefs</summary><p data-info="folklore"></p></details>
+<details class="info-accordion"><summary>What to Do & What to Avoid</summary><p data-info="cautions"></p></details>
+<p class="disclaimer">This is an educational guide to Northern Hemisphere seasonal traditions, not a set of compulsory beliefs or rituals. Historical customs vary by region, and modern symbolic associations are identified as such.</p></div>
+</aside></main>
+
+<footer>MindEcliptic · Wheel of the Year · Northern Hemisphere · 2026–2100</footer>
+</div><script src="./app.js" defer></script></body></html>
