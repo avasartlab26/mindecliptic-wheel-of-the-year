@@ -23,7 +23,7 @@ body{margin:0;background:radial-gradient(ellipse at 30% 0%,#173041 0%,transparen
 .sector{cursor:pointer;fill:#ffe6a000;stroke:#f8ce7200;stroke-width:3;transition:fill .15s,stroke .15s}
 .sector:hover,.sector:focus-visible{fill:#fce9b819;stroke:#ffe4a3d9}
 .sector[aria-pressed=true]{fill:#ffe1a518;stroke:#ffe3a7b5}
-.sector:focus-visible{outline:2px solid #f6dfbc;outline-offset:2px}
+.sector:focus{outline:none}/* Keyboard focus remains indicated by highlighted sector fill and stroke. */
 .rim-label{position:absolute;z-index:2;top:var(--y);left:var(--x);transform:translate(-50%,-50%);width:clamp(62px,15%,120px);min-height:42px;border:1px solid #e1b977;border-radius:22px;padding:6px 3px;background:linear-gradient(130deg,#0a1929f6,#1c2227ee);color:#fff2d7;cursor:pointer;text-align:center;box-shadow:0 2px 8px #0008}
 .rim-label .name{display:block;font:small-caps clamp(11px,1.1vw,16px)/1.1 Georgia,serif}
 .rim-label .date{display:block;font:600 clamp(7px,.64vw,10px)/1.35 system-ui,sans-serif;letter-spacing:.03em;color:#f3d8a4;margin-top:4px;white-space:nowrap}
