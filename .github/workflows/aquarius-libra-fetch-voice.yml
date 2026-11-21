@@ -1,0 +1,35 @@
+name: Aquarius Libra approved Kendall voice handoff
+on:
+  push:
+    branches:
+      - production/aquarius-libra-voice-handoff-20261121
+    paths:
+      - '.github/workflows/aquarius-libra-fetch-voice.yml'
+permissions:
+  contents: write
+jobs:
+  fetch-voice:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - name: Fetch already-created approved voice (no generation)
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p production/aquarius-libra/voice
+          curl --retry 3 --retry-delay 3 --fail --location --silent --show-error 'https://resource2.heygen.ai/text_to_speech/caa62fc65518455089da3e5988c14526/0c15ff66590e451e8a60f466a64ee8a2/id=460a690c21c648489c0c1b19544f8399.wav' --output production/aquarius-libra/voice/kendall-approved.wav
+          test -s production/aquarius-libra/voice/kendall-approved.wav
+          file production/aquarius-libra/voice/kendall-approved.wav
+          head -c 4 production/aquarius-libra/voice/kendall-approved.wav | grep -q RIFF
+          stat -c '%s bytes' production/aquarius-libra/voice/kendall-approved.wav
+      - name: Commit WAV only on this isolated production branch
+        shell: bash
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add production/aquarius-libra/voice/kendall-approved.wav
+          git diff --cached --quiet || git commit -m 'Add approved Kendall narration WAV for local video assembly'
+          git push
